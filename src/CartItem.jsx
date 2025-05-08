@@ -26,6 +26,7 @@ const CartItem = ({ onContinueShopping }) => {
 
   const handleContinueShopping = (e) => {
     e.preventDefault();
+    console.log('Continue Shopping clicked'); // ← これで確認
     onContinueShopping(); // ←親から渡された関数を呼ぶ
   };
 
