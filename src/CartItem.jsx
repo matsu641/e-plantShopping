@@ -9,28 +9,53 @@ const CartItem = ({ onContinueShopping }) => {
 
   // Calculate total amount for all products in the cart
   const calculateTotalAmount = () => {
- 
+    let total = 0;
+  
+    cart.forEach(item => {
+      const price = parseFloat(item.cost.substring(1)); // "$15" → 15
+      total += price * item.quantity;
+    });
+  
+    return total.toFixed(2);
+  };
+  
+
+  const handleCheckoutShopping = (e) => {
+    alert('Functionality to be added for future reference');
   };
 
   const handleContinueShopping = (e) => {
-   
+    e.preventDefault();
+    onContinueShopping(); // ←親から渡された関数を呼ぶ
   };
 
 
 
   const handleIncrement = (item) => {
+    dispatch(updateQuantity({ name: item.name, quantity: item.quantity + 1 }));
   };
+  
 
   const handleDecrement = (item) => {
-   
+    if (item.quantity > 1) {
+      dispatch(updateQuantity({ name: item.name, quantity: item.quantity - 1 }));
+    } else {
+      dispatch(removeItem({ name: item.name }));
+    }
   };
+  
 
   const handleRemove = (item) => {
+    dispatch(removeItem({ name: item.name }));
   };
+  
 
   // Calculate total cost based on quantity for an item
   const calculateTotalCost = (item) => {
+    const price = parseFloat(item.cost.substring(1)); // "$12" → 12
+    return (price * item.quantity).toFixed(2);
   };
+  
 
   return (
     <div className="cart-container">
