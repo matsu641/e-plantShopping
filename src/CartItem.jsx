@@ -20,7 +20,7 @@ const CartItem = ({ onContinueShopping }) => {
   };
   
 
-  const handleCheckoutShopping = (e) => {
+  /*const handleCheckoutShopping = (e) => {
     alert('Functionality to be added for future reference');
   };
 
@@ -28,7 +28,7 @@ const CartItem = ({ onContinueShopping }) => {
     e.preventDefault();
     console.log('Continue Shopping clicked'); // ← これで確認
     onContinueShopping(); // ←親から渡された関数を呼ぶ
-  };
+  };*/
 
 
 
